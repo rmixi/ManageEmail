@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Hero_ManageEmail>
+      <version>0.1.0</version>
+    </Hero_ManageEmail>
+  </modules>
+  <global>
+    <helpers>
+      <manageemail>
+        <class>Hero_ManageEmail_Helper</class>
+      </manageemail>
+    </helpers>
+	<blocks>
+	  <manageemail>
+		<class>Hero_ManageEmail_Block</class>
+	  </manageemail>
+	</blocks>
+	<models>
+	  <manageemail>
+		<class>Hero_ManageEmail_Model</class>
+		<resourceModel>manageemail_mysql4</resourceModel>
+	  </manageemail>
+	  <manageemail_mysql4>
+		<class>Hero_ManageEmail_Model_Mysql4</class>
+		<entities>		  
+			  <emailqueue>
+				<table>core_email_queue_recipients</table>
+			  </emailqueue>
+		</entities>
+	  </manageemail_mysql4>
+	</models>
+	<resources>
+	  <manageemail_setup>
+		<setup>
+		  <module>Hero_ManageEmail</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </manageemail_setup>
+	  <manageemail_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </manageemail_write>
+	  <manageemail_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </manageemail_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <manageemail>
+	    <use>admin</use>
+		<args>
+		  <module>Hero_ManageEmail</module>
+		  <frontName>admin_manageemail</frontName>
+		</args>
+	  </manageemail>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <system >
+		  <children>
+		  <tools>
+		<children>
+		  <emailqueue module="manageemail">
+		    <title>Email Queue Manager</title>
+			<sort_order>1050</sort_order>
+			<action>admin_manageemail/adminhtml_emailqueue</action>
+		  </emailqueue>
+		</children>
+		  </tools>
+		  </children>
+	  </system>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<manageemail translate="title" module="manageemail">
+			  <title>ManageEmail</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <manageemailbackend translate="title">
+			<title>Backend Page Title</title>
+		  </manageemailbackend>
+		  <emailqueue translate="title">
+			<title>Manage Emailqueue</title>
+			<sort_order>0</sort_order>
+		  </emailqueue>
+			  </children>
+			</manageemail>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<manageemail>
+		  <file>manageemail.xml</file>
+		</manageemail>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

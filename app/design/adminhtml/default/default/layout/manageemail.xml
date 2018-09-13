@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <manageemail_adminhtml_manageemailbackend_index>
+	<reference name="content">
+	  <block type="manageemail/adminhtml_manageemailbackend" name="manageemailbackend" template="manageemail/manageemailbackend.phtml"/>
+	</reference>
+  </manageemail_adminhtml_manageemailbackend_index>
+  <manageemail_adminhtml_emailqueue_index>
+	<reference name="content">
+	  <block type="manageemail/adminhtml_emailqueue" name="emailqueue" />
+	</reference>
+  </manageemail_adminhtml_emailqueue_index>
+</layout>
