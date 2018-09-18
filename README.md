@@ -6,8 +6,7 @@
 Upload all files to your Magento root directory. Clear the cache.
 
 ## Usage
-```
 В backend menu выберите  System -> Tools -> Email Queue Manager, увидите  список Email’s (ошибочный email будет подсвечиваться) удалите/отредактируете его
-```
+
 ## Compatibility
 Magento 1.9
